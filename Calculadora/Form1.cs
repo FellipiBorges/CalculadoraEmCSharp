@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ namespace Calculadora
 {
     public partial class Form1 : Form
     {
+        decimal valor1 = 0, valor2 = 0;
+        string operacao = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -90,6 +94,14 @@ namespace Calculadora
         private void button3_Click(object sender, EventArgs e)
         {
             txtResultado.Text += "9";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            valor1 = decimal.Parse(txtResultado.Text, CultureInfo.InvariantCulture);
+            txtResultado.Text = "";
+            operacao = "SOMA";
+            lblOperacao.Text = "+";
         }
     }
 }
